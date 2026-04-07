@@ -13,9 +13,9 @@ function loadGoogleAnalytics(id) {
 window.addEventListener("load", function() {
     if (navigator.webdriver) {
       console.log('Bot Browser');
-      loadGoogleAnalytics("G-00BC67P211");
+      loadGoogleAnalytics("G-06CN64JJ61");
     } else {
       console.log('Human Browser');
-      loadGoogleAnalytics("G-00BC67P211");
+      loadGoogleAnalytics("G-06CN64JJ61");
     }
 });
