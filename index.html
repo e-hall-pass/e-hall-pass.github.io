@@ -1,713 +1,2385 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>eHallPass Guide – Student & Teacher Resource</title>
-  <meta name="description" content="Everything you need to know about eHallPass – how it works, student tips, teacher setup, FAQs, and more. Your complete guide to the digital hall pass system."/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<html data-bs-theme="light" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+        <title>Ehallpass</title>
+        <meta name="description" content="E Hall Pass: Enjoy a seamless gaming experience with a diverse array of ad-free, no-download unblocked free games. Play Unblocked Games on Chrome." />
+        <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css" />
+	    <meta name="keywords" content="classroom 6x,classroom 6x unblocked, free games, FAF Games, unblocked games, online games, free online games, free games, browser games, chrome games, chromebook games, chrome online games, pc games">
+        <meta name="robots" content="all,index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+	    <meta name="publisher" content="School Pass Team">
+	    <link rel="canonical" href="https://e-hall-pass.github.io/" />
+        <link rel="stylesheet" href="/assets/css/Quicksand.css" />
+        <link rel="stylesheet" href="/assets/fonts/font-awesome.min.css" />
+        <link rel="stylesheet" href="/assets/css/styles.css" />
 
-    :root {
-      --navy:   #0b2545;
-      --blue:   #1d4e89;
-      --teal:   #17b890;
-      --sky:    #e8f4fd;
-      --gold:   #f4a261;
-      --white:  #ffffff;
-      --gray:   #f5f7fa;
-      --text:   #1a1a2e;
-      --muted:  #5a6a7a;
-      --border: #dce6f0;
-      --radius: 14px;
-      --shadow: 0 4px 24px rgba(11,37,69,.10);
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      color: var(--text);
-      background: var(--white);
-      line-height: 1.7;
-      font-size: 16px;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(11,37,69,.97);
-      backdrop-filter: blur(8px);
-      padding: 0 5%;
-      display: flex; align-items: center; justify-content: space-between;
-      height: 64px;
-      box-shadow: 0 2px 12px rgba(0,0,0,.18);
-    }
-    .nav-logo {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.35rem;
-      color: var(--white);
-      text-decoration: none;
-      letter-spacing: -.3px;
-    }
-    .nav-logo span { color: var(--teal); }
-    .nav-links { display: flex; gap: 32px; list-style: none; }
-    .nav-links a {
-      color: rgba(255,255,255,.78);
-      text-decoration: none;
-      font-size: .9rem;
-      font-weight: 500;
-      transition: color .2s;
-    }
-    .nav-links a:hover { color: var(--teal); }
-    .nav-cta {
-      background: var(--teal);
-      color: var(--white) !important;
-      padding: 8px 20px;
-      border-radius: 99px;
-      font-weight: 600 !important;
-    }
-    .nav-cta:hover { background: #14a07c; color: var(--white) !important; }
-
-    /* ── HERO ── */
-    .hero {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 60%, #1a6eb5 100%);
-      color: var(--white);
-      padding: 100px 5% 90px;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-      pointer-events: none;
-    }
-    .hero-inner { max-width: 780px; position: relative; }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(23,184,144,.2);
-      border: 1px solid rgba(23,184,144,.4);
-      color: #7eecd4;
-      padding: 6px 16px;
-      border-radius: 99px;
-      font-size: .82rem;
-      font-weight: 600;
-      letter-spacing: .5px;
-      text-transform: uppercase;
-      margin-bottom: 24px;
-    }
-    .hero-badge::before { content: '🎓'; }
-    h1 {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(2.4rem, 5vw, 3.8rem);
-      line-height: 1.12;
-      margin-bottom: 22px;
-      letter-spacing: -.5px;
-    }
-    h1 em { color: var(--teal); font-style: normal; }
-    .hero p {
-      font-size: 1.15rem;
-      color: rgba(255,255,255,.8);
-      max-width: 600px;
-      margin-bottom: 36px;
-      font-weight: 300;
-    }
-    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
-    .btn-primary {
-      background: var(--teal);
-      color: var(--white);
-      padding: 14px 30px;
-      border-radius: 99px;
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 1rem;
-      transition: transform .2s, box-shadow .2s;
-      box-shadow: 0 4px 18px rgba(23,184,144,.4);
-    }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(23,184,144,.5); }
-    .btn-outline {
-      border: 2px solid rgba(255,255,255,.35);
-      color: var(--white);
-      padding: 14px 30px;
-      border-radius: 99px;
-      font-weight: 500;
-      text-decoration: none;
-      font-size: 1rem;
-      transition: border-color .2s, background .2s;
-    }
-    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,.08); }
-
-    /* hero stats */
-    .hero-stats {
-      display: flex; gap: 40px; margin-top: 56px;
-      padding-top: 40px;
-      border-top: 1px solid rgba(255,255,255,.12);
-      flex-wrap: wrap;
-    }
-    .stat { }
-    .stat-num {
-      font-family: 'DM Serif Display', serif;
-      font-size: 2rem;
-      color: var(--teal);
-      display: block;
-    }
-    .stat-label { font-size: .85rem; color: rgba(255,255,255,.6); font-weight: 400; }
-
-    /* ── SECTION COMMON ── */
-    section { padding: 80px 5%; }
-    .section-label {
-      display: inline-block;
-      font-size: .78rem;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--teal);
-      margin-bottom: 12px;
-    }
-    h2 {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
-      line-height: 1.2;
-      color: var(--navy);
-      margin-bottom: 16px;
-      letter-spacing: -.3px;
-    }
-    .section-sub {
-      color: var(--muted);
-      font-size: 1.05rem;
-      max-width: 560px;
-      margin-bottom: 52px;
-    }
-
-    /* ── WHAT IS ── */
-    .what-is { background: var(--gray); }
-    .what-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: center;
-    }
-    .what-visual {
-      background: var(--navy);
-      border-radius: 20px;
-      padding: 36px;
-      color: var(--white);
-      box-shadow: var(--shadow);
-    }
-    .pass-card {
-      background: linear-gradient(135deg, var(--blue), #2463ae);
-      border-radius: 14px;
-      padding: 28px;
-      margin-bottom: 16px;
-      position: relative;
-    }
-    .pass-card-title {
-      font-size: .72rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: rgba(255,255,255,.55);
-      margin-bottom: 6px;
-    }
-    .pass-card-name {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.5rem;
-      margin-bottom: 4px;
-    }
-    .pass-meta { display: flex; gap: 20px; margin-top: 16px; }
-    .pass-meta-item { }
-    .pass-meta-label { font-size: .7rem; color: rgba(255,255,255,.5); text-transform: uppercase; letter-spacing: 1px; }
-    .pass-meta-val { font-size: .95rem; font-weight: 600; color: var(--teal); }
-    .pass-status {
-      position: absolute; top: 16px; right: 16px;
-      background: rgba(23,184,144,.2);
-      border: 1px solid var(--teal);
-      color: var(--teal);
-      border-radius: 99px;
-      padding: 4px 12px;
-      font-size: .75rem;
-      font-weight: 700;
-    }
-    .what-points { list-style: none; margin-top: 16px; }
-    .what-points li {
-      display: flex; align-items: flex-start; gap: 12px;
-      padding: 12px 0;
-      border-bottom: 1px solid rgba(255,255,255,.07);
-      font-size: .93rem;
-      color: rgba(255,255,255,.75);
-    }
-    .what-points li:last-child { border-bottom: none; }
-    .what-points li::before { content: '✓'; color: var(--teal); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
-
-    .what-text p { color: var(--muted); margin-bottom: 16px; font-size: 1rem; }
-    .what-text strong { color: var(--navy); }
-
-    /* ── HOW IT WORKS ── */
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 28px;
-    }
-    .step-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px 26px;
-      position: relative;
-      transition: transform .2s, box-shadow .2s;
-    }
-    .step-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-    .step-num {
-      font-family: 'DM Serif Display', serif;
-      font-size: 3rem;
-      color: var(--sky);
-      line-height: 1;
-      margin-bottom: 12px;
-      -webkit-text-stroke: 2px var(--border);
-    }
-    .step-icon { font-size: 1.8rem; margin-bottom: 10px; }
-    .step-card h3 { font-size: 1.05rem; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
-    .step-card p { font-size: .9rem; color: var(--muted); }
-
-    /* ── TIPS ── */
-    .tips { background: var(--navy); color: var(--white); }
-    .tips h2 { color: var(--white); }
-    .tips .section-sub { color: rgba(255,255,255,.6); }
-    .tips-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 22px;
-    }
-    .tip-card {
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.1);
-      border-radius: var(--radius);
-      padding: 28px;
-      transition: background .2s;
-    }
-    .tip-card:hover { background: rgba(255,255,255,.1); }
-    .tip-icon { font-size: 2rem; margin-bottom: 14px; }
-    .tip-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; color: var(--teal); }
-    .tip-card p { font-size: .9rem; color: rgba(255,255,255,.65); line-height: 1.6; }
-
-    /* ── FAQ ── */
-    .faq { background: var(--gray); }
-    .faq-list { max-width: 740px; }
-    .faq-item {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      margin-bottom: 12px;
-      overflow: hidden;
-    }
-    .faq-q {
-      width: 100%;
-      text-align: left;
-      padding: 20px 24px;
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--navy);
-      background: none;
-      border: none;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      transition: background .15s;
-    }
-    .faq-q:hover { background: var(--sky); }
-    .faq-q .arrow {
-      flex-shrink: 0;
-      width: 24px; height: 24px;
-      background: var(--sky);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: .75rem;
-      transition: transform .3s, background .2s;
-      color: var(--blue);
-    }
-    .faq-item.open .faq-q .arrow { transform: rotate(180deg); background: var(--teal); color: var(--white); }
-    .faq-a {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height .35s ease, padding .25s;
-      padding: 0 24px;
-      color: var(--muted);
-      font-size: .95rem;
-    }
-    .faq-item.open .faq-a { max-height: 400px; padding: 0 24px 20px; }
-
-    /* ── ROLES ── */
-    .roles-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-    }
-    .role-card {
-      border-radius: var(--radius);
-      padding: 36px 30px;
-      position: relative;
-      overflow: hidden;
-    }
-    .role-card.student { background: linear-gradient(135deg, #e8f4fd, #d0eaff); border: 1px solid #b3d4f0; }
-    .role-card.teacher { background: linear-gradient(135deg, #e8fdf5, #c8f5e5); border: 1px solid #9ee8cc; }
-    .role-card.admin   { background: linear-gradient(135deg, #fff8ed, #ffe8c8); border: 1px solid #f4c68a; }
-    .role-emoji { font-size: 2.5rem; margin-bottom: 16px; }
-    .role-card h3 { font-size: 1.15rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
-    .role-card ul { list-style: none; }
-    .role-card ul li {
-      padding: 6px 0;
-      font-size: .9rem;
-      color: var(--muted);
-      display: flex; gap: 10px; align-items: flex-start;
-    }
-    .role-card ul li::before { content: '→'; font-weight: 700; flex-shrink: 0; color: var(--blue); }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--navy);
-      color: rgba(255,255,255,.55);
-      padding: 48px 5% 32px;
-      text-align: center;
-    }
-    footer .footer-logo {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.5rem;
-      color: var(--white);
-      margin-bottom: 12px;
-    }
-    footer .footer-logo span { color: var(--teal); }
-    footer p { font-size: .88rem; max-width: 500px; margin: 0 auto 24px; }
-    .footer-links { display: flex; justify-content: center; gap: 28px; margin-bottom: 32px; flex-wrap: wrap; }
-    .footer-links a { color: rgba(255,255,255,.5); text-decoration: none; font-size: .88rem; transition: color .2s; }
-    .footer-links a:hover { color: var(--teal); }
-    .footer-bottom { border-top: 1px solid rgba(255,255,255,.1); padding-top: 24px; font-size: .82rem; }
-    .disclaimer {
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.1);
-      border-radius: 10px;
-      padding: 14px 20px;
-      font-size: .8rem;
-      max-width: 600px;
-      margin: 0 auto 28px;
-      color: rgba(255,255,255,.4);
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .what-grid { grid-template-columns: 1fr; }
-      .roles-grid { grid-template-columns: 1fr; }
-      .hero-stats { gap: 24px; }
-    }
-
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(22px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .hero-inner > * { animation: fadeUp .6s ease both; }
-    .hero-inner > *:nth-child(1) { animation-delay: .05s; }
-    .hero-inner > *:nth-child(2) { animation-delay: .12s; }
-    .hero-inner > *:nth-child(3) { animation-delay: .20s; }
-    .hero-inner > *:nth-child(4) { animation-delay: .28s; }
-    .hero-inner > *:nth-child(5) { animation-delay: .36s; }
-  </style>
-</head>
-<body>
-
-<!-- NAV -->
-<nav>
-  <a class="nav-logo" href="#">e<span>Hall</span>Pass<span style="color:rgba(255,255,255,.3)"> Guide</span></a>
-  <ul class="nav-links">
-    <li><a href="#what-is">What Is It</a></li>
-    <li><a href="#how-it-works">How It Works</a></li>
-    <li><a href="#tips">Student Tips</a></li>
-    <li><a href="#faq">FAQ</a></li>
-    <li><a href="https://www.securlypass.com" target="_blank" rel="noopener" class="nav-cta">Official Site ↗</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-badge">Student & Staff Resource</div>
-    <h1>Your Complete Guide to<br><em>eHallPass</em></h1>
-    <p>Everything students, teachers, and administrators need to know about the digital hall pass system used in schools across the country.</p>
-    <div class="hero-btns">
-      <a href="#how-it-works" class="btn-primary">How It Works</a>
-      <a href="#faq" class="btn-outline">Read FAQ</a>
-    </div>
-    <div class="hero-stats">
-      <div class="stat"><span class="stat-num">3M+</span><span class="stat-label">Students using eHallPass</span></div>
-      <div class="stat"><span class="stat-num">8,000+</span><span class="stat-label">Schools nationwide</span></div>
-      <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Digital, paperless passes</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- WHAT IS -->
-<section class="what-is" id="what-is">
-  <div class="what-grid">
-    <div class="what-text">
-      <span class="section-label">Overview</span>
-      <h2>What Is eHallPass?</h2>
-      <p>eHallPass (now known as <strong>Securly Pass</strong>) is a <strong>digital hall pass management system</strong> used by K–12 schools to replace paper hall passes. It lets students request permission to leave the classroom digitally, while teachers and staff can approve, monitor, and manage passes in real time.</p>
-      <p>Instead of writing out a paper slip, students submit a request on a school device or their phone. Teachers see the request, approve or deny it, and administrators get a full picture of student movement across the building — all logged automatically.</p>
-      <p>The system was designed to <strong>improve school safety</strong>, reduce hall congestion, and give staff better visibility without extra paperwork.</p>
-    </div>
-    <div class="what-visual">
-      <div class="pass-card">
-        <div class="pass-card-title">Digital Hall Pass</div>
-        <div class="pass-card-name">Alex Johnson</div>
-        <div class="pass-meta">
-          <div class="pass-meta-item">
-            <div class="pass-meta-label">Destination</div>
-            <div class="pass-meta-val">Restroom</div>
-          </div>
-          <div class="pass-meta-item">
-            <div class="pass-meta-label">Issued</div>
-            <div class="pass-meta-val">10:42 AM</div>
-          </div>
-          <div class="pass-meta-item">
-            <div class="pass-meta-label">Limit</div>
-            <div class="pass-meta-val">15 min</div>
-          </div>
-        </div>
-        <div class="pass-status">✓ Active</div>
-      </div>
-      <ul class="what-points">
-        <li>Teacher approves the pass digitally</li>
-        <li>Pass auto-expires after set time limit</li>
-        <li>Admin can see all passes school-wide</li>
-        <li>History is saved for safety records</li>
-        <li>Works on any school device or browser</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section id="how-it-works">
-  <span class="section-label">Step by Step</span>
-  <h2>How eHallPass Works</h2>
-  <p class="section-sub">The process is quick and straightforward for both students and teachers.</p>
-  <div class="steps-grid">
-    <div class="step-card">
-      <div class="step-num">01</div>
-      <div class="step-icon">🖥️</div>
-      <h3>Student Logs In</h3>
-      <p>Students sign in to eHallPass using their school Google account or district credentials on any school device.</p>
-    </div>
-    <div class="step-card">
-      <div class="step-num">02</div>
-      <div class="step-icon">📝</div>
-      <h3>Request a Pass</h3>
-      <p>The student selects their destination (restroom, nurse, office, library, etc.) and submits a request to their teacher.</p>
-    </div>
-    <div class="step-card">
-      <div class="step-num">03</div>
-      <div class="step-icon">✅</div>
-      <h3>Teacher Approves</h3>
-      <p>The teacher sees the request on their dashboard and taps to approve or deny. The pass is instantly activated.</p>
-    </div>
-    <div class="step-card">
-      <div class="step-num">04</div>
-      <div class="step-icon">🚶</div>
-      <h3>Student Travels</h3>
-      <p>The student shows their active pass on their device if stopped in the hallway. The timer counts down automatically.</p>
-    </div>
-    <div class="step-card">
-      <div class="step-num">05</div>
-      <div class="step-icon">🔔</div>
-      <h3>Pass Closes</h3>
-      <p>When the student returns, they end the pass. If time runs out, the teacher is automatically notified.</p>
-    </div>
-    <div class="step-card">
-      <div class="step-num">06</div>
-      <div class="step-icon">📊</div>
-      <h3>Data Is Logged</h3>
-      <p>All pass activity is stored in a dashboard. Admins can review patterns, frequency, and duration for any student.</p>
-    </div>
-  </div>
-</section>
-
-<!-- WHO USES IT -->
-<section style="background: var(--gray);" id="roles">
-  <span class="section-label">Who Uses eHallPass</span>
-  <h2>Built for Every Role</h2>
-  <p class="section-sub">eHallPass is designed to benefit students, teachers, and administrators differently.</p>
-  <div class="roles-grid">
-    <div class="role-card student">
-      <div class="role-emoji">🎒</div>
-      <h3>Students</h3>
-      <ul>
-        <li>Request passes directly from your device</li>
-        <li>No need to interrupt class verbally</li>
-        <li>Track your own pass history</li>
-        <li>Get approved passes faster</li>
-        <li>Know exactly how long you have</li>
-      </ul>
-    </div>
-    <div class="role-card teacher">
-      <div class="role-emoji">🍎</div>
-      <h3>Teachers</h3>
-      <ul>
-        <li>Approve or deny passes without stopping instruction</li>
-        <li>Set pass limits per period or day</li>
-        <li>See who's out of class at any moment</li>
-        <li>Get alerted for overdue passes</li>
-        <li>Review student pass trends over time</li>
-      </ul>
-    </div>
-    <div class="role-card admin">
-      <div class="role-emoji">🏫</div>
-      <h3>Administrators</h3>
-      <ul>
-        <li>Monitor hall traffic school-wide in real time</li>
-        <li>Identify patterns for individual students</li>
-        <li>Improve school safety protocols</li>
-        <li>Generate reports for staff or parents</li>
-        <li>Reduce unauthorized hallway presence</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- STUDENT TIPS -->
-<section class="tips" id="tips">
-  <span class="section-label" style="color: var(--teal);">Pro Tips</span>
-  <h2>Student Tips for Using eHallPass</h2>
-  <p class="section-sub">Make the most of your digital hall pass with these helpful tips.</p>
-  <div class="tips-grid">
-    <div class="tip-card">
-      <div class="tip-icon">⏰</div>
-      <h3>Check Your Pass Limits</h3>
-      <p>Most schools set a maximum number of passes per day or period. Keep an eye on how many you've used so you don't run out when you really need one.</p>
-    </div>
-    <div class="tip-card">
-      <div class="tip-icon">📱</div>
-      <h3>Request Before You Need It</h3>
-      <p>Submit your pass request a couple of minutes early during a natural break in the lesson. This avoids disruption and gets you approved faster.</p>
-    </div>
-    <div class="tip-card">
-      <div class="tip-icon">🔄</div>
-      <h3>Always End Your Pass</h3>
-      <p>When you return, make sure to close your pass. Leaving it open will alert your teacher and may count against you on future requests.</p>
-    </div>
-    <div class="tip-card">
-      <div class="tip-icon">🗺️</div>
-      <h3>Pick the Right Destination</h3>
-      <p>Always select the correct destination. Choosing the wrong location can cause confusion and may be flagged by administrators reviewing pass logs.</p>
-    </div>
-    <div class="tip-card">
-      <div class="tip-icon">⚡</div>
-      <h3>Be Quick & Respectful</h3>
-      <p>The timer on your pass is real. Try to complete your trip efficiently. Repeated overtime alerts can affect how teachers view future pass requests.</p>
-    </div>
-    <div class="tip-card">
-      <div class="tip-icon">💬</div>
-      <h3>Talk to Your Teacher</h3>
-      <p>If you have a medical reason for needing more passes than usual, speak with your teacher or nurse privately. They can adjust your settings in the system.</p>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="faq" id="faq">
-  <span class="section-label">FAQ</span>
-  <h2>Frequently Asked Questions</h2>
-  <p class="section-sub">Answers to the most common questions about eHallPass.</p>
-  <div class="faq-list">
-
-    <div class="faq-item">
-      <button class="faq-q">Is eHallPass the same as Securly Pass? <span class="arrow">▾</span></button>
-      <div class="faq-a">Yes. eHallPass was rebranded to <strong>Securly Pass</strong> after being acquired by Securly, a student safety company. Most schools that used eHallPass now operate under the Securly Pass name, though the core functionality remains the same.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q">Can teachers see where I am using eHallPass? <span class="arrow">▾</span></button>
-      <div class="faq-a">Teachers can see your selected destination and how long you've been on your pass. The system does not track your physical GPS location — it only shows what destination you selected when you created the pass and how long you've been out.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q">What happens if my pass expires while I'm still in the hallway? <span class="arrow">▾</span></button>
-      <div class="faq-a">If your pass time runs out, your teacher may receive a notification alert. The pass itself doesn't automatically lock you out or anything severe, but it signals to your teacher to check on your return. Always try to close your pass when you get back to avoid confusion.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q">How do I log in to eHallPass at my school? <span class="arrow">▾</span></button>
-      <div class="faq-a">Most schools use Google SSO (Single Sign-On) — meaning you log in with your school Google account. Some districts use Microsoft or a separate username/password. Visit your school's specific eHallPass or Securly Pass link (usually shared by your teacher or IT department) to access it.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q">Can I use eHallPass on my personal phone? <span class="arrow">▾</span></button>
-      <div class="faq-a">It depends on your school's policy. eHallPass is browser-based, so it can technically run on any device with internet access. However, your school may restrict it to school-issued devices only. Check with your teacher or IT coordinator for your school's specific rules.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q">What if my teacher denies my pass? <span class="arrow">▾</span></button>
-      <div class="faq-a">If your teacher denies your pass request, they may add a reason or note. You can wait and try again or speak with them directly. Some teachers have restrictions during tests, important lessons, or if the hall pass limit for the period has been reached.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q">Do administrators keep records of my hall pass history? <span class="arrow">▾</span></button>
-      <div class="faq-a">Yes. All pass activity is logged in the system. Administrators can review how often a student leaves class, how long they were out, and which destinations they chose. This data can be used for safety reviews or parent-teacher discussions.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q">Is eHallPass free for students? <span class="arrow">▾</span></button>
-      <div class="faq-a">Students do not pay anything to use eHallPass. The system is licensed by the school or school district. As long as your school has a subscription, you can use it at no cost.</div>
-    </div>
-
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-logo">e<span>Hall</span>Pass Guide</div>
-  <p>An independent informational resource for students, teachers, and parents. Not affiliated with Securly, Inc. or any school district.</p>
-  <div class="footer-links">
-    <a href="#what-is">What Is eHallPass</a>
-    <a href="#how-it-works">How It Works</a>
-    <a href="#tips">Student Tips</a>
-    <a href="#roles">Who Uses It</a>
-    <a href="#faq">FAQ</a>
-    <a href="https://www.securlypass.com" target="_blank" rel="noopener">Official Securly Pass ↗</a>
-  </div>
-  <div class="disclaimer">
-    This site is an independent educational guide. "eHallPass" and "Securly Pass" are trademarks of Securly, Inc. This site is not affiliated with, endorsed by, or connected to Securly or any school district.
-  </div>
-  <div class="footer-bottom">© 2025 eHallPass Guide · Independent Student Resource</div>
-</footer>
-
-<script>
-  // FAQ accordion
-  document.querySelectorAll('.faq-q').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const item = btn.closest('.faq-item');
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
-    });
-  });
-
-  // Scroll reveal
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.style.animation = 'fadeUp .55s ease both';
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.step-card, .tip-card, .role-card, .faq-item, .stat').forEach(el => {
-    el.style.opacity = '0';
-    observer.observe(el);
-  });
+		<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Ehallpass",
+  "url": "https://e-hall-pass.github.io",
+  "logo": "https://e-hall-pass.github.io/assets/img/logo.png",
+  "sameAs": [
+    "https://facebook.com",
+    "https://twitter.com",
+    "https://www.youtube.com"
+  ]
+}
 </script>
-</body>
+		<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "https://e-hall-pass.github.io",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://e-hall-pass.github.io/search.html?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://e-hall-pass.github.io"
+    }
+  ]
+}
+</script>
+		<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Ehallpass?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ehallpass is a free gaming website that provides access to unblocked games, especially designed for students and players who want to enjoy games at school or work without restrictions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Ehallpass safe to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Ehallpass hosts browser-based games that don’t require downloads, making it generally safe to play."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I play Ehallpass games on a Chromebook?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Ehallpass works perfectly on Chromebooks, laptops, desktops, and even mobile devices since the games run directly in the browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the most popular Ehallpass games?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Some of the most popular games are Slope Unblocked, Run 3, Drift Hunters, Retro Bowl, 1v1.LOL, and OvO Game."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-06CN64JJ61"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-06CN64JJ61');
+</script>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
+                <div class="container">
+                    <a class="navbar-brand d-flex align-items-center" href="/"><img src="/assets/img/logo.png" alt="Ehallpass" /></a>
+                    <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navcol-1">
+                        <div class="search-container">
+                            <input type="text" id="search-input" class="search-input" placeholder="Search Ehallpass Here" /><button id="search-button" class="btn search-button" type="button" aria-label="Search"> <i class="fa fa-search" aria-hidden="true"></i> </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <div class="nav-categories">
+                <div class="container">
+                    <nav class="greedy">
+                        <ul class="links list-categories">
+							<li class=""><a href="/category/unblocked-games">Unblocked Games</a></li>
+                            <li class=""><a href="/category/adventure">Adventure</a></li>
+                            <li class=""><a href="/category/arcade">Arcade</a></li>
+                            <li class=""><a href="/category/idle">Idle</a></li>
+                            <li class=""><a href="/category/running">Running</a></li>
+                            <li class=""><a href="/category/strategy">Strategy</a></li>
+                            <li class=""><a href="/category/2-players">2 Players</a></li>
+                            <li class=""><a href="/category/action">Action</a></li>
+                            <li class=""><a href="/category/car">Car</a></li>
+                            <li class=""><a href="/category/io">.io</a></li>
+                            <li class=""><a href="/category/puzzle">Puzzle</a></li>
+                            <li class=""><a href="/category/shooting">Shooting</a></li>
+                            <li class=""><a href="/category/simulator">Simulator</a></li>
+                            <li class=""><a href="/category/skill">Skill</a></li>
+                            <li class=""><a href="/category/sport">Sport</a></li>
+                            <li class=""><a href="/category/stickman">Stickman</a></li>
+                            <li class=""><a href="/category/multiplayer">Multiplayer</a></li>
+                            <li class=""><a href="/category/papas">Papas</a></li>
+                            <li class=""><a href="/category/anime">Anime</a></li>
+                            <li class=""><a href="/category/flash">Flash</a></li>
+                            <li class=""><a href="/category/racing">Racing</a></li>
+                            <li class=""><a href="/category/retro">Retro</a></li>
+                        </ul>
+                        <button class="btn" type="button">MORE</button>
+                        <ul class="hidden-links hidden"></ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="content-wrapper">
+                <div class="container">
+							  <div class="banner-ad-wrapper"><div class="banner-ad-content" style="padding: 20px; text-align: center;">
+
+							  </div></div>
+                    <h1 style="text-align: center;">Ehallpass</h1>
+                    <p style="text-align: center;">
+    Looking for a fun way to pass the time during a break at school or work, 
+    <b>Ehallpass</b></a> is one of the best places online to play 
+    <a href="https://e-hall-pass.github.io/">free unblocked games</a>. 
+    This gaming site is designed to help students and casual players enjoy quick, browser-based games without worrying about downloads or restrictions. 
+    Whether you like <a href="https://e-hall-pass.github.io/category/action">action</a>, 
+    <a href="https://e-hall-pass.github.io/category/puzzle">puzzles</a>, 
+    <a href="https://e-hall-pass.github.io/category/racing">racing</a>, or 
+    <a href="https://e-hall-pass.github.io/category/multiplayer">multiplayer</a> challenges, you all find something to enjoy.
+  </p>
+                    <div class="game-container">
+                        <h3 class="item-title"><i class="fa fa-star"></i><span>&nbsp;TRENDING GAMES</span></h3>
+                        <div class="row">
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/cannon-basketball-2">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/cannon-basketball-2.jpg" />
+                                            <div class="hover-info"><span>Cannon BasketBall 2</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+							 <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/ovo-dimensions">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/ovo-dimensions.png" alt="OvO Dimensions - A fast-paced platformer with parkour challenges and tricky obstacles." />
+                                            <div class="hover-info">
+                                                <span>OvO Dimensions</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/1v1-lol">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/1v1-lol.png" alt="1v1.lol Unblocked - A fast-paced battle royale building and shooting game." />
+                                            <div class="hover-info">
+                                                <span>1v1.lol Unblocked</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/getaway-shootout.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/getaway-shootout.jpg">
+                            <div class="hover-info"><span>Getaway Shootout</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/fireboy-and-watergirl-1.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/fireboy-and-watergirl-1.jpg">
+                            <div class="hover-info"><span>Fireboy and watergirl</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/city-car-driving-stunt-master.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/city-car-driving-stunt-master.jpg">
+                            <div class="hover-info"><span>City Car Driving: Stunt Master</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/level-devil-2.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/level-devil-2.jpg">
+                            <div class="hover-info"><span>Level devil 2</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/mario-kart-tour.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplusio/jpg/mario-kart-tour.jpg">
+                            <div class="hover-info"><span>Mario Kart Tour</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/worlds-hardest-game-2.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/worlds-hardest-game-2.jpg">
+                            <div class="hover-info"><span>Worlds hardest game 2</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/worlds-hardest-game-3.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/worlds-hardest-game-3.jpg">
+                            <div class="hover-info"><span>Worlds hardest game 3</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/stickman-climb.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/stickman-climb.jpg">
+                            <div class="hover-info"><span>Stickman Climb</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/the-sun-for-the-vampire-2.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/the-sun-for-the-vampire-2.jpg">
+                            <div class="hover-info"><span>The Sun For The Vampire 2</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/cookie-clicker.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/cookie-clicker.jpg">
+                            <div class="hover-info"><span>Cookie Clicker</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/ducklife-4.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/ducklife-4.jpg">
+                            <div class="hover-info"><span>Duck Life 4</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/colorup.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/colorup.jpg">
+                            <div class="hover-info"><span>Color Up</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/game4.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/game4.jpg">
+                            <div class="hover-info"><span>Run Man Tokyo</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/dino-bros.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/dino-bros.jpg">
+                            <div class="hover-info"><span>Dino Bros</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/zoom-be.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/zoom-be.jpg">
+                            <div class="hover-info"><span>Zoom Be</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/xmas-slope.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/xmas-slope.jpg">
+                            <div class="hover-info"><span>Xmas Slope</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/twin-shot.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/twin-shot.jpg">
+                            <div class="hover-info"><span>Twin Shot</span></div>
+                        </div>
+                    </div>
+                    </a>
+				</div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/penguin-diner.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/penguin-diner.jpg">
+                            <div class="hover-info"><span>Penguin Diner 1</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/stickman-war.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/stickman-war.jpg">
+                            <div class="hover-info"><span>Stickman War</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/silly-ways-to-die-adventures.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/silly-ways-to-die-adventures.jpg">
+                            <div class="hover-info"><span>Silly Ways to Die Adventures</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/football-killer.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/football-killer.jpg">
+                            <div class="hover-info"><span>Football Killer</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/thumb-fighter-halloween.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/thumb-fighter-halloween.jpg">
+                            <div class="hover-info"><span>Thumb Fighter Halloween</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/tradecraft.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/tradecraft.jpg">
+                            <div class="hover-info"><span>TradeCraft</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/trollface-quest-horror-2.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/trollface-quest-horror-2.jpg">
+                            <div class="hover-info"><span>TrollFace Quest Horror 2</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/funny-shooter-2">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/funny-shooter-2.png" alt="Funny Shooter 2 - A wacky first-person shooter with bizarre enemies and crazy weapons." />
+                                            <div class="hover-info">
+                                                <span>Funny Shooter 2</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/basketball-stars">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/basketball-stars.png" alt="Basketball Stars - A fast-paced 2D basketball game with intense one-on-one matches." />
+                                            <div class="hover-info">
+                                                <span>Basketball Stars</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/bitlife-life-simulator">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/bitlife-life-simulator.png" alt="BitLife - A life simulation game where you make choices and shape your virtual life story." />
+                                            <div class="hover-info">
+                                                <span>BitLife</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/electron-dash">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/electron-dash.png" alt="Electron Dash - A fast-paced running game set in a futuristic neon tunnel." />
+                                            <div class="hover-info">
+                                                <span>Electron Dash</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/unicycle-hero">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/unicycle-hero.png" alt="Unicycle Hero - A challenging balancing game where you compete in various sports while riding a unicycle." />
+                                            <div class="hover-info">
+                                                <span>Unicycle Hero</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/a-small-world-cup">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/a-small-world-cup.png" alt="A Small World Cup - A fun and fast-paced soccer game with simple controls and exciting gameplay." />
+                                            <div class="hover-info">
+                                                <span>A Small World Cup</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/candy-jump">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/candy-jump.png" alt="Candy Jump - A fun and addictive jumping game with colorful candy obstacles and power-ups." />
+                                            <div class="hover-info">
+                                                <span>Candy Jump</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/drive-mad">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/drive-mad.png" alt="Drive Mad - A thrilling driving game where you navigate through challenging obstacles and terrains." />
+                                            <div class="hover-info">
+                                                <span>Drive Mad</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/basket-random">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/basket-random.png" alt="Basket Random - A fun and chaotic basketball game with random challenges and unpredictable gameplay." />
+                                            <div class="hover-info">
+                                                <span>Basket Random</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/cluster-rush">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/cluster-rush.png" alt="Cluster Rush - A fast-paced action game where you race to avoid obstacles while collecting clusters." />
+                                            <div class="hover-info">
+                                                <span>Cluster Rush</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/funny-shooter">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/funny-shooter.png" alt="Funny Shooter - A humorous first-person shooter game with wacky weapons and quirky enemies." />
+                                            <div class="hover-info">
+                                                <span>Funny Shooter</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/car-rush">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/car-rush.png" alt="Car Rush - A thrilling car racing game where you navigate through challenging tracks and avoid obstacles." />
+                                            <div class="hover-info">
+                                                <span>Car Rush</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/bacon-may-die">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/bacon-may-die.png" alt="Bacon May Die - An action-packed game where you control a bacon strip fighting against various enemies and bosses." />
+                                            <div class="hover-info">
+                                                <span>Bacon May Die</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/fireboy-and-watergirl-1">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img
+                                                src="/assets/upload/gplus/fireboy-and-watergirl-1.png"
+                                                alt="Fireboy and Watergirl - A cooperative puzzle game where Fireboy and Watergirl work together to solve challenges in magical temples."
+                                            />
+                                            <div class="hover-info">
+                                                <span>Fireboy and Watergirl</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/curve-ball-3d">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/curve-ball-3d.png" alt="Curve Ball 3D - A 3D version of the classic pong game where you control a paddle to bounce a ball and defeat your opponent." />
+                                            <div class="hover-info">
+                                                <span>Curve Ball 3D</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/soccer-skills-world-cup">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/soccer-skills-world-cup.png" alt="Soccer Skills World Cup - A soccer game where you can showcase your skills in penalty shootouts and other exciting challenges." />
+                                            <div class="hover-info">
+                                                <span>Soccer Skills World Cup</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/duck-life-adventure">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/duck-life-adventure.png" alt="Duck Life Adventure - A fun game where you train your duck to compete in various sports challenges and become the champion." />
+                                            <div class="hover-info">
+                                                <span>Duck Life Adventure</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/monkey-mart">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/monkey-mart.png" alt="MonkeyMart - A fun and engaging simulation game where you run a store with monkeys and sell products to customers." />
+                                            <div class="hover-info">
+                                                <span>Monkey Mart</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/friday-night-funkin">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplusio/friday-night-funkin.png" alt="Friday Night Funkin  - A popular rhythm-based game where you compete in music battles to win the heart of your love interest." />
+                                            <div class="hover-info">
+                                                <span>Friday Night Funkin</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/blumgi-slime">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/blumgi-slime.png" alt="Blumgi Slime - A fun and quirky puzzle platformer where you control a slime to solve puzzles and navigate through various challenges." />
+                                            <div class="hover-info">
+                                                <span>Blumgi Slime</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/candy-jump">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/candy-jump.png" alt="Candy Jump - A fun and challenging arcade game where you help the candy character jump over obstacles to reach new heights." />
+                                            <div class="hover-info">
+                                                <span>Candy Jump</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/traffic-jam-3d">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/traffic-jam-3d.png" alt="Traffic Jam 3D - A challenging driving puzzle game where you must maneuver vehicles through traffic jams and clear the road." />
+                                            <div class="hover-info">
+                                                <span>Traffic Jam 3D</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/car-rush">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/car-rush.jpg" />
+                                            <div class="hover-info"><span>Car Rush</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/dinosaur-game">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/dinosaur-game.jpg" />
+                                            <div class="hover-info"><span>Dinosaur Game</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/doggo-clicker">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/doggo-clicker.jpg" />
+                                            <div class="hover-info"><span>Doggo Clicker</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/duo-survival-3">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/duo-survival-3.jpg" />
+                                            <div class="hover-info"><span>Duo Survival 3</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/evw">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/evw.jpg" />
+                                            <div class="hover-info"><span>Evw</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/fly-car-stunt-2">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/fly-car-stunt-2.jpg" />
+                                            <div class="hover-info"><span>Fly Car Stunt 2</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/fly-car-stunt-4">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/fly-car-stunt-4.jpg" />
+                                            <div class="hover-info"><span>Fly Car Stunt 4</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/fly-car-stunt">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/fly-car-stunt.jpg" />
+                                            <div class="hover-info"><span>Fly Car Stunt</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/food-empire-inc">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/food-empire-inc.jpg" />
+                                            <div class="hover-info"><span>Food Empire Inc</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/football-stars">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/football-stars.jpg" />
+                                            <div class="hover-info"><span>Football Stars</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/funny-mad-racing">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/funny-mad-racing.jpg" />
+                                            <div class="hover-info"><span>Funny Mad Racing</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/grand-prix-hero">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/grand-prix-hero.jpg" />
+                                            <div class="hover-info"><span>Grand Prix Hero</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/gswitch">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/gswitch.jpg" />
+                                            <div class="hover-info"><span>G-Switch 3</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/head-soccer-2023">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/head-soccer-2023.jpg" />
+                                            <div class="hover-info"><span>Head Soccer 2023</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/idle-miner">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/idle-miner.jpg" />
+                                            <div class="hover-info"><span>Idle Miner</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/kiwi-clicker">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/kiwi-clicker.jpg" />
+                                            <div class="hover-info"><span>Kiwi Clicker</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/life-the-game">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/life-the-game.jpg" />
+                                            <div class="hover-info"><span>Life The Game</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/mad-truck-challenge-special">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/mad-truck-challenge-special.jpg" />
+                                            <div class="hover-info"><span>Mad Truck Challenge Special</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/mega-ramp-car-stunts">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/mega-ramp-car-stunts.jpg" />
+                                            <div class="hover-info"><span>Mega Ramp Car Stunts</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/money-movers-3">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/money-movers-3.jpg" />
+                                            <div class="hover-info"><span>Money Movers 3</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/moon-clash-3d">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/moon-clash-3d.jpg" />
+                                            <div class="hover-info"><span>Moon Clash Heroes</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/moto-maniac">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/moto-maniac.jpg" />
+                                            <div class="hover-info"><span>Moto Maniac</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/my-perfect-hotel">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/my-perfect-hotel.jpg" />
+                                            <div class="hover-info"><span>My Perfect Hotel</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <h3 class="item-title"><i class="fa fa-certificate"></i><span>LATEST GAMES</span></h3>
+                        <div class="row">
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/breaking-the-bank">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/breaking-the-bank.jpg" />
+                                            <div class="hover-info"><span>Breaking The Bank</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+							 <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/capybara-clicker-2.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/capybara-clicker-2.jpg">
+                            <div class="hover-info"><span>Capybara Clicker 2</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/mega-ramp-car-stunts.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/mega-ramp-car-stunts.jpg">
+                            <div class="hover-info"><span>Mega Ramp Car Stunts</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/rainbow-stacker.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/rainbow-stacker.jpg">
+                            <div class="hover-info"><span>Stack</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/thumb-fighter.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/thumb-fighter.jpg">
+                            <div class="hover-info"><span>Thumb fighter</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/there-is-no-game.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/there-is-no-game.jpg">
+                            <div class="hover-info"><span>There is no game</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/stickman-parkour-skyland.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/stickman-parkour-skyland.jpg">
+                            <div class="hover-info"><span>Stickman Parkour Skyland</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/up-hill-racing-2.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/up-hill-racing-2.jpg">
+                            <div class="hover-info"><span>Up Hill Racing 2</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/parking-fury-3d-bounty-hunter.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/parking-fury-3d-bounty-hunter.jpg">
+                            <div class="hover-info"><span>Parking Fury 3D Bounty Hunter</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/stickman-parkour-2-lucky-block.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/stickman-parkour-2-lucky-block.jpg">
+                            <div class="hover-info"><span>Stickman Parkour 2 Lucky Block</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/blumgi-dragon.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/blumgi-dragon.jpg">
+                            <div class="hover-info"><span>Boom Dragon</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/doctor-hero.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/doctor-hero.jpg">
+                            <div class="hover-info"><span>Doctor Hero</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/dangerous-roads.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/dangerous-roads.jpg">
+                            <div class="hover-info"><span>Dangerous Road</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/jungle-friends.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/jungle-friends.jpg">
+                            <div class="hover-info"><span>Jungle Market</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/spider-swing-manhattan.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/spider-swing-manhattan.jpg">
+                            <div class="hover-info"><span>Spider Swing Manhattan</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/crossbar-challenge.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/crossbar-challenge.jpg">
+                            <div class="hover-info"><span>CROSSBAR CHALLENGE</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/papas-hotdoggeria.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/papas-hotdoggeria.jpg">
+                            <div class="hover-info"><span>Papa Hotdoggeria</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/balls-race.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/balls-race.jpg">
+                            <div class="hover-info"><span>Balls Race</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/stickman-escape.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/stickman-escape.jpg">
+                            <div class="hover-info"><span>Stickman Escape</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/bomb-it-6.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/bomb-it-6.jpg">
+                            <div class="hover-info"><span>Bomb It 6</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/parrot-simulator.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/parrot-simulator.jpg">
+                            <div class="hover-info"><span>Parrot Simulator</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/monster-school-challenge-2.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/monster-school-challenge-2.jpg">
+                            <div class="hover-info"><span>Monster School 2</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/winter-dodge.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/winter-dodge.jpg">
+                            <div class="hover-info"><span>Winter Dodge</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/vegas-clash-3d.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/vegas-clash-3d.jpg">
+                            <div class="hover-info"><span>Vegas Clash 3d</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/car-drawing-game.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/car-drawing-game.jpg">
+                            <div class="hover-info"><span>Car Drawing Game</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+							<div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/paper-io-2">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img
+                                                src="/assets/upload/gplus/paper-io-2.png"
+                                                alt="Paper.io 2 - A multiplayer strategy game where you control a square and aim to take over as much territory as possible while avoiding other players."
+                                            />
+                                            <div class="hover-info">
+                                                <span>Paper.io</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/dreadhead-parkour">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/dreadhead-parkour.png" />
+                                            <div class="hover-info"><span>DreadHead Parkour</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/dune-surfer">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/dune-surfer.png" />
+                                            <div class="hover-info"><span>Dune Surfer</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/eagle-ride">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/eagle-ride.png" />
+                                            <div class="hover-info"><span>Eagle Ride</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/fox-simulator-3d">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/fox-simulator-3d.png" />
+                                            <div class="hover-info"><span>Fox Simulator 3D</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/geometry-dash-world">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/geometry-dash-world.png" />
+                                            <div class="hover-info"><span>Geometry Dash World</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/gobble">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/gobble.png" />
+                                            <div class="hover-info"><span>Gobble</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/gp-moto-racing">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/gp-moto-racing.png" />
+                                            <div class="hover-info"><span>GP Moto Racing</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/halloween-skeleton-smash">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/halloween-skeleton-smash.png" />
+                                            <div class="hover-info"><span>Halloween Skeleton Smash</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/highway-racer-3d">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/highway-racer-3d.png" />
+                                            <div class="hover-info"><span>Highway racer 3D</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/horse-simulator-3d">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/horse-simulator-3d.png" />
+                                            <div class="hover-info"><span>Horse Simulator 3D</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/idle-success">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/idle-success.png" />
+                                            <div class="hover-info"><span>Idle Success</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/iron-snout">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/iron-snout.png" />
+                                            <div class="hover-info"><span>Iron Snout</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/kix-dream-soccer">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/kix-dream-soccer.png" />
+                                            <div class="hover-info"><span>Kix Dream Soccer</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/merge-alphabet">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/merge-alphabet.png" />
+                                            <div class="hover-info"><span>Merge AlPhaBet</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/motoroadrash3d">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/motoroadrash3d.png" />
+                                            <div class="hover-info"><span>Moto Road Rash 3D</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/offroader-v5">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/offroader-v5.png" />
+                                            <div class="hover-info"><span>Offroader V5</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/only-up-3d-parkour-go-ascend">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/only-up-3d-parkour-go-ascend.png" />
+                                            <div class="hover-info"><span>Only Up! Parkour Running Game</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/panda-simulator-3d">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/panda-simulator-3d.png" />
+                                            <div class="hover-info"><span>Panda Simulator 3D</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/papas-wingeria">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/papas-wingeria.png" />
+                                            <div class="hover-info"><span>Papas Wingeria</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/poppy-glamrock">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/poppy-glamrock.png" />
+                                            <div class="hover-info"><span>Poppy Glamrock</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/raccoon-adventure-city-simulator-3d">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/raccoon-adventure-city-simulator-3d.png" />
+                                            <div class="hover-info"><span>Raccoon Adventure City Simulator 3D</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/raft-life">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/raft-life.png" />
+                                            <div class="hover-info"><span>Raft Life</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/rally-point-2">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/rally-point-2.png" />
+                                            <div class="hover-info"><span>Rally Point 2</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/cyber-cars-punk-racing">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/cyber-cars-punk-racing.jpg" />
+                                            <div class="hover-info"><span>Cyber Cars Punk Racing</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/death-chase">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/death-chase.jpg" />
+                                            <div class="hover-info"><span>Death Chase</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/draw-and-save-stickman">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/draw-and-save-stickman.jpg" />
+                                            <div class="hover-info"><span>Draw and Save Stickman</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/escaping-the-prison">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/escaping-the-prison.jpg" />
+                                            <div class="hover-info"><span>Escaping The Prison</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/fleeing-the-complex">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/fleeing-the-complex.jpg" />
+                                            <div class="hover-info"><span>Fleeing The Complex</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/g-switch-4">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/g-switch-4.jpg" />
+                                            <div class="hover-info"><span>G Switch 4</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/game-of-farmers">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/game-of-farmers.jpg" />
+                                            <div class="hover-info"><span>Game Of Farmers</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/gp-moto-racing-3">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/gp-moto-racing-3.jpg" />
+                                            <div class="hover-info"><span>GP Moto Racing 3</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/grindcraft-remastered">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/grindcraft-remastered.jpg" />
+                                            <div class="hover-info"><span>Grindcraft Remastered</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/gswitch-2">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/gswitch-2.jpg" />
+                                            <div class="hover-info"><span>Gswitch 2</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/highway-bike-simulator">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/highway-bike-simulator.jpg" />
+                                            <div class="hover-info"><span>Highway Bike Simulator</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/hover-racer-drive">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/hover-racer-drive.jpg" />
+                                            <div class="hover-info"><span>Hover Racer Drive</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/idle-dice">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/idle-dice.jpg" />
+                                            <div class="hover-info"><span>Idle Dice</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/idle-digging-tycoon">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/idle-digging-tycoon.jpg" />
+                                            <div class="hover-info"><span>Idle Digging Tycoon</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/indian-uphill-bus-simulator-3d">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/indian-uphill-bus-simulator-3d.jpg" />
+                                            <div class="hover-info"><span>Indian Uphill Bus Simulator 3D</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/infiltrating-the-airship">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/infiltrating-the-airship.jpg" />
+                                            <div class="hover-info"><span>Infiltrating The Airship</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/jellycar-worlds">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/jellycar-worlds.jpg" />
+                                            <div class="hover-info"><span>JellyCar Worlds</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/jump-monster">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/jump-monster.jpg" />
+                                            <div class="hover-info"><span>Jump Monster</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/magikmon">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/magikmon.jpg" />
+                                            <div class="hover-info"><span>Magikmon</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/merge-cyber-racers">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/merge-cyber-racers.jpg" />
+                                            <div class="hover-info"><span>Merge Cyber Racers</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/merge-round-racers">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/merge-round-racers.jpg" />
+                                            <div class="hover-info"><span>Merge Round Racers</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/neon-hill-rider">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/neon-hill-rider.jpg" />
+                                            <div class="hover-info"><span>Neon Hill Rider</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/ovo-dimensions">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/ovo-dimensions.jpg" />
+                                            <div class="hover-info"><span>OvO Dimension</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <h3 class="item-title"><i class="fa fa-gamepad"></i><span>FEATURED GAMES</span></h3>
+                        <div class="row">
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/bloons-tower-defense-3">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/bloons-tower-defense-3.jpg" />
+                                            <div class="hover-info"><span>Bloons Tower Defense 3</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+							 <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/drive-mad.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/drive-mad.jpg">
+                            <div class="hover-info"><span>Drive Mad</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/drift-hunters.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/drift-hunters.jpg">
+                            <div class="hover-info"><span>Drift Hunters</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/super-star-car.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/super-star-car.jpg">
+                            <div class="hover-info"><span>Super Star Car</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/traffic-jam-3d.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/traffic-jam-3d.jpg">
+                            <div class="hover-info"><span>Traffic Jam 3d Game</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/1v1-lol.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/1v1-lol.jpg">
+                            <div class="hover-info"><span>1v1.LOL</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/retro-bowl.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/retro-bowl.jpg">
+                            <div class="hover-info"><span>Retro Bowl</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/big-shot-boxing.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/big-shot-boxing.jpg">
+                            <div class="hover-info"><span>Big Shot Boxing</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/basket-random.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/basket-random.jpg">
+                            <div class="hover-info"><span>Basket Random</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/moto-x3m.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplusio/jpg/moto-x3m.jpg">
+                            <div class="hover-info"><span>Moto X3M</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/bitlife-life-simulator.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/bitlife-life-simulator.jpg">
+                            <div class="hover-info"><span>BitLife</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/rooftop-snipers-2.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/rooftop-snipers-2.jpg">
+                            <div class="hover-info"><span>Rooftop Snipers 2</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/basketball-stars.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/basketball-stars.jpg">
+                            <div class="hover-info"><span>Basketball Stars</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/subway-surfers-new-orleans.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/subway-surfers-new-orleans.jpg">
+                            <div class="hover-info"><span>Subway Surfers New Orleans</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/tomb-of-the-mask.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/tomb-of-the-mask.jpg">
+                            <div class="hover-info"><span>Tomb of The Mask</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/ping-pong-go.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/ping-pong-go.jpg">
+                            <div class="hover-info"><span>Ping Pong Go</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/saloon-robbery.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/saloon-robbery.jpg">
+                            <div class="hover-info"><span>Saloon Robbery</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/ninja-clash-heroes.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/ninja-clash-heroes.jpg">
+                            <div class="hover-info"><span>Ninja Clash Heroes</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/cartoon-mini-racing.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/cartoon-mini-racing.jpg">
+                            <div class="hover-info"><span>Cartoon Mini Racing</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/one-piece-vs-naruto.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/one-piece-vs-naruto.jpg">
+                            <div class="hover-info"><span>Bleach vs Naruto</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/big-tower-tiny-square.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/big-tower-tiny-square.jpg">
+                            <div class="hover-info"><span>Big Tower Tiny Square</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/quick-gun.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/quick-gun.jpg">
+                            <div class="hover-info"><span>Quick Gun</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/silly-ways-to-die-christmas-party.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/silly-ways-to-die-christmas-party.jpg">
+                            <div class="hover-info"><span>Silly Ways to Die Christmas Party</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/basketball-serial-shooter.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/basketball-serial-shooter.jpg">
+                            <div class="hover-info"><span>Basketball Serial Shooter</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                    <a href="/pass/neon-biker.html">
+                    <div class="list-game">
+                        <div class="list-thumbnail square-thumb"><img src="/assets/upload/gplus/jpg/neon-biker.jpg">
+                            <div class="hover-info"><span>Neon Biker</span></div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+							<div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/spider-solitaire">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplusio/spider-solitaire.png" />
+                                            <div class="hover-info"><span>Spider Solitaire</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/bob-the-robber-4">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/bob-the-robber-4.png" />
+                                            <div class="hover-info"><span>Bob The Robber 4</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/boxrob">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/boxrob.png" />
+                                            <div class="hover-info"><span>BoxRob</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/burger-clicker">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/burger-clicker.png" />
+                                            <div class="hover-info"><span>Burger Clicker</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/cartoon-mini-racing">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/cartoon-mini-racing.png" />
+                                            <div class="hover-info"><span>Cartoon Mini Racing</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/cat-clicker-re">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/cat-clicker-re.png" />
+                                            <div class="hover-info"><span>Cat Clicker</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/cats-drop">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/cats-drop.png" />
+                                            <div class="hover-info"><span>Cats Drop</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/deer-simulator">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/deer-simulator.png" />
+                                            <div class="hover-info"><span>Deer Simulator</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/diggy">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/diggy.png" />
+                                            <div class="hover-info"><span>Diggy</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/dog-simulator-3d">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/dog-simulator-3d.png" />
+                                            <div class="hover-info"><span>Dog Simulator 3D</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/ducklife-4">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/ducklife-4.png" />
+                                            <div class="hover-info"><span>Duck Life 4</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/extreme-car-parking">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/extreme-car-parking.png" />
+                                            <div class="hover-info"><span>Extreme Car Parking!</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/extreme-off-road-cars-3-cargo">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/extreme-off-road-cars-3-cargo.png" />
+                                            <div class="hover-info"><span>Extreme Off Road Cars 3 Cargo</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/fnaf-sister">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/fnaf-sister.png" />
+                                            <div class="hover-info"><span>FNAF Sister</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/fnaf4">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/fnaf4.png" />
+                                            <div class="hover-info"><span>FNAF 4</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/fortride-open-world">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/fortride-open-world.png" />
+                                            <div class="hover-info"><span>Fortride: Open World</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/furious-racing-3d">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/furious-racing-3d.png" />
+                                            <div class="hover-info"><span>Furious Racing 3D</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/geometry-dash-remastered">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/geometry-dash-remastered.png" />
+                                            <div class="hover-info"><span>Geometry Dash Remastered</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/heroball-adventures">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/heroball-adventures.png" />
+                                            <div class="hover-info"><span>Heroball Adventures</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/hydro-storm-2">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/hydro-storm-2.png" />
+                                            <div class="hover-info"><span>Hydro Storm 2</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/indian-truck-simulator-3d">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/indian-truck-simulator-3d.png" />
+                                            <div class="hover-info"><span>Indian Truck Simulator 3D</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/level-devil-2">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/level-devil-2.png" />
+                                            <div class="hover-info"><span>Level devil 2</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/lows-adventures-3">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/lows-adventures-3.png" />
+                                            <div class="hover-info"><span>Lows Adventures 3</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/merge-rainbow">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/merge-rainbow.png" />
+                                            <div class="hover-info"><span>Merge RainBow</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/christmas-deer-simulator">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/christmas-deer-simulator.jpg" />
+                                            <div class="hover-info"><span>Chrismas deer simulator</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/dreadhead-parkour">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/dreadhead-parkour.jpg" />
+                                            <div class="hover-info"><span>DreadHead Parkour</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/drift-io">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/drift-io.jpg" />
+                                            <div class="hover-info"><span>Drift io</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/dune-surfer">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/dune-surfer.jpg" />
+                                            <div class="hover-info"><span>Dune Surfer</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/football-masters">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/football-masters.jpg" />
+                                            <div class="hover-info"><span>Football Masters</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/fox-simulator-3d">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/fox-simulator-3d.jpg" />
+                                            <div class="hover-info"><span>Fox Simulator 3D</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/geometry-dash-world">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/geometry-dash-world.jpg" />
+                                            <div class="hover-info"><span>Geometry Dash World</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/gobble">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/gobble.jpg" />
+                                            <div class="hover-info"><span>Gobble</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/gold-digger-frvr">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/gold-digger-frvr.jpg" />
+                                            <div class="hover-info"><span>Gold Digger Frvr</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/halloween-skeleton-smash">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/halloween-skeleton-smash.jpg" />
+                                            <div class="hover-info"><span>Halloween Skeleton Smash</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/highway-racer-3d">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/highway-racer-3d.jpg" />
+                                            <div class="hover-info"><span>Highway racer 3D</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/hill-climb-racing">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/hill-climb-racing.jpg" />
+                                            <div class="hover-info"><span>Hill Climb Racing</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/idle-success">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/idle-success.jpg" />
+                                            <div class="hover-info"><span>Idle Success</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/iron-snout-2">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/iron-snout-2.jpg" />
+                                            <div class="hover-info"><span>Iron Snout 2</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/iron-snout">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/iron-snout.jpg" />
+                                            <div class="hover-info"><span>Iron Snout</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/merge-alphabet">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/merge-alphabet.jpg" />
+                                            <div class="hover-info"><span>Merge AlPhaBet</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/motoroadrash3d">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/motoroadrash3d.jpg" />
+                                            <div class="hover-info"><span>Moto Road Rash 3D</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/offroader-v5">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/offroader-v5.jpg" />
+                                            <div class="hover-info"><span>Offroader V5</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/only-up-3d-parkour-go-ascend">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/only-up-3d-parkour-go-ascend.jpg" />
+                                            <div class="hover-info"><span>Only Up! Parkour Running Game</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/papas-wingeria">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/papas-wingeria.jpg" />
+                                            <div class="hover-info"><span>Papas Wingeria</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/poppy-glamrock">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/poppy-glamrock.jpg" />
+                                            <div class="hover-info"><span>Poppy Glamrock</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/raccoon-adventure-city-simulator-3d">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/raccoon-adventure-city-simulator-3d.jpg" />
+                                            <div class="hover-info"><span>Raccoon Adventure City Simulator 3D</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-sm-3 col-md-1-5 item-grid">
+                                <a href="/pass/raft-life">
+                                    <div class="list-game">
+                                        <div class="list-thumbnail square-thumb">
+                                            <img src="/assets/upload/gplus/jpg/raft-life.jpg" />
+                                            <div class="hover-info"><span>Raft Life</span></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+ 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="mt-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="ft-item">
+                            <h4 class="widget-title">About Us</h4>
+                            <p>Ehallpass is your go-to destination for playing unblocked games at school or work. Enjoy a wide variety of games that are fun and accessible anytime, anywhere.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+<h4> Category</h4>
+<p>
+<a href="/category/unblocked-games" title="Unblocked Games">Unblocked Games</a> |
+<a href="/category/action" title="Action Games">Action</a> |
+<a href="/category/adventure" title="Adventure Games">Adventure</a> |
+<a href="/category/arcade" title="Arcade Games">Arcade Games</a> |
+<a href="/category/multiplayer" title="Multiplayer Games">Multiplayer</a> |
+<a href="/category/shooting" title="Shooting Games">Shooting</a> |
+<a href="/category/2-players" title="2 Player Games">2 Player Games</a> |
+<a href="/category/idle" title="Idle Games">Idle</a> |
+<a href="/category/car" title="Car Games">Car</a> |
+<a href="/category/simulator" title="Simulator Games">Simulator</a> |
+<a href="/category/io" title=".io Games">.io</a> |
+<a href="/category/stickman" title="Stickman Games">Stickman</a> |
+<a href="/category/sport" title="Sport Games">Sport</a> |
+<a href="/category/skill" title="Skill Games">Skill</a> |
+</p> 
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="ft-item">
+                            <h4 class="widget-title">Pages</h4>
+                            <ul class="pages" style="padding-left: 1rem;">
+                                <li><a href="/dmca/">DMCA</a></li>
+                                <li><a href="/privacy/">Privacy Policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+<div class="copyright py-4 text-center text-white">
+    <div class="container">
+        e-hall-pass.github.io © 2026 All rights reserved.
+    </div>
+</div>
+        <script src="/assets/js/jquery.min.js"></script>
+        <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/assets/js/ads_v1.js"></script>
+        <script src="/assets/js/search_v1_0.js"></script>
+        <script src="/assets/js/main.js"></script>
+    </body>
 </html>
